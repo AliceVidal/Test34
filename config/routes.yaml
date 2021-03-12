@@ -2,13 +2,10 @@
 #-------------------------- PAGES COMPANY -----------------------------
 # ---------------------------------------------------------------------
 
-
-
 company_create:
    path: /company/create
    controller: App\Controller\CompanyController::create
 
-<<<<<<< HEAD
 # ---------------------------------------------------------------------
 #---------------------------- PAGES USER ------------------------------
 # ---------------------------------------------------------------------
@@ -16,7 +13,6 @@ company_create:
 # user_showall:
 #     path: /user/showAll
 #     controller: App\Controller\UserController::showAll
-=======
 backoffice_user_update:
    path: /backoffice/update/{id}
    controller: App\Controller\UserController::update
@@ -27,4 +23,53 @@ backoffice:
    path: /backoffice/
    controller: App\Controller\BackofficeController::index
 
->>>>>>> 2fa37a977b78dd4a529441b10f037567fde0a991
+
+# ---------------------------------------------------------------------
+#----------------------- PAGES CHALLENGES -----------------------------
+# ---------------------------------------------------------------------
+
+challenges_show: # Page de présentation avec la liste de tous les challenges
+  path: /challenges_show
+  controller: App\Controller\ChallengesController::challenges_show
+
+ #------------------------
+challenges_add:
+  path: /challenges_add
+  controller: App\Controller\ChallengesController::challenges_add
+
+ #------------------------
+challenges_edit:
+  path: /challenges_edit/{id}
+  controller: App\Controller\ChallengesController::challenges_edit
+  requirements:
+    id: '\d+'
+
+ #------------------------
+challenges_remove:
+  path: /challenges_remove/{id}
+  controller: App\Controller\ChallengesController::challenges_remove
+  requirements:
+    id: '\d+'
+
+# ---------------------------------------------------------------------
+#----------------------- PAGES TASKS ----------------------------------
+# ---------------------------------------------------------------------
+tasks_show: # Page de présentation avec la liste de toutes les taches
+  path: /tasks_show
+  controller: App\Controller\TasksController::tasks_show
+
+tasks_add:
+  path: /tasks_add
+  controller: App\Controller\TasksController::tasks_add
+
+tasks_edit:
+  path: /tasks_edit/{id}
+  controller: App\Controller\TasksController::tasks_edit
+  requirements:
+    id: '\d+'
+
+tasks_remove:
+  path: /tasks_remove/{id}
+  controller: App\Controller\TasksController::tasks_remove
+  requirements:
+    id: '\d+'
