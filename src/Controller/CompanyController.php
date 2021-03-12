@@ -25,14 +25,24 @@ class CompanyController extends AbstractController
                 $form->get('companySize')->getData()  
             );
 
-           
-                if( $form->get('companyGroup')->getData() == 'Oui' )
-                 {
-                    $company->setCompanyGroup(true);
-                }else{
-                    $company->setCompanyGroup(false);
-                }
-                
+            if( $form->get('companyGroup')->getData() == 'Oui' )
+                {
+                $company->setCompanyGroup(true);
+            }else{
+                $company->setCompanyGroup(false);
+            }
+
+            $company->setLivingSpace( 
+                $form->get('livingSpace')->getData()  
+            );
+
+            $company->setObjectives( 
+                $form->get('objectives')->getData()  
+            );
+
+            $company->setTransitionType( 
+                $form->get('transitionType')->getData()  
+            );
 
             $em = $this->getDoctrine()->getManager();
 
