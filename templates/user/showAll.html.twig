@@ -1,0 +1,38 @@
+{# {% extends "layout.html.twig" %} #}
+
+{% block title %}
+    {{ parent() }} - Utilisateurs
+{% endblock %}
+
+{% block content %}
+    <h2>Liste des utilisateurs</h2>
+
+
+    <table class="table thead-dark">
+        <thead class="thead-dark">
+            <th>Nom de la société</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Téléphone</th>
+            <th>Poste</th>
+        </thead>
+        <tbody>
+            {% for user in allUsers %}
+                <tr>
+                    <td>{{ user.userCompanyName }}</td>
+                    <td>{{ user.userLastName }}</td>
+                    <td>{{ user.userFirstName }}</td>
+                    <td>{{ user.userEmail | date("d/m/Y") }}</td>
+                    <td>{{ user.userPhone }}</td>
+                    <td>{{ user.userPosition }}</td>
+{#                     <td>
+                        <a href="{{ path('monblog_auteur_delete', {id: auteur.id}) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer l\'auteur ?')">Supprimer</a>
+                        <a href="{{ path('monblog_auteur_update', {id: auteur.id}) }}">Modifier</a>
+                    </td> #}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
