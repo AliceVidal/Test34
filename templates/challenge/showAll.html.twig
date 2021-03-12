@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+    <h2>Liste des défis et ajout</h2>
+
+
+    <table class="table thead-dark">
+        <thead class="thead-dark">
+            <th>id</th>
+            <th>Nom du défi</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
+
+        </thead>
+        <tbody>
+            {% for challenge in allChallenges %}
+                <tr>
+                    <td>{{ challenge.Id }}</td>
+                    <td>{{ challenge.challengeName }}</td>
+                    <td>
+                        <a href="{{ path('backoffice_challenge_update', {id: challenge.id}) }}">Modifier</a>
+                    </td>
+                    <td>
+                        <a href="{{ path('backoffice_challenge_delete', {id: challenge.id}) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer le défi?')">Supprimer</a>
+                    </td>                  
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {{ form(form) }}
+
+{% endblock %}

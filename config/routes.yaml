@@ -23,3 +23,22 @@ backoffice_user_update:
 backoffice:
    path: /backoffice/
    controller: App\Controller\BackofficeController::index
+
+
+backoffice_challenge:
+   path: /backoffice/challenge
+   controller: App\Controller\ChallengeController::challengeBack
+
+
+backoffice_challenge_update:
+   path: /backoffice/challenge/update/{id}
+   controller: App\Controller\ChallengeController::update
+   requirements:
+        id: \d+
+
+backoffice_challenge_delete:
+   path: /backoffice/challenge/delete/{id}
+   controller: App\Controller\ChallengeController::delete
+   requirements:
+        id: \d+
+

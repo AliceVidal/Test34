@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+
+use App\Repository\ChallengeRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

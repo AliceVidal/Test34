@@ -34,6 +34,11 @@ class Pack
      */
     private $price;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="pack")
+     */
+    private $users;
+
     
 
     /**
@@ -41,7 +46,7 @@ class Pack
      */
     public function __construct()
     {
-      
+        $this->users = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -69,6 +74,33 @@ class Pack
     public function setPrice(float $price): self
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->addPack($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->removeElement($user)) {
+            $user->removePack($this);
+        }
 
         return $this;
     }

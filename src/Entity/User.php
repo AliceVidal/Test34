@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -63,6 +65,22 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $userPosition;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Order::class, mappedBy="user")
+     */
+    private $orders;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Pack::class, inversedBy="users")
+     */
+    private $pack;
+
+    public function __construct()
+    {
+        $this->orders = new ArrayCollection();
+        $this->pack = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -213,6 +231,60 @@ class User implements UserInterface
     public function setUserPosition(string $userPosition): self
     {
         $this->userPosition = $userPosition;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Order[]
+     */
+    public function getOrders(): Collection
+    {
+        return $this->orders;
+    }
+
+    public function addOrder(Order $order): self
+    {
+        if (!$this->orders->contains($order)) {
+            $this->orders[] = $order;
+            $order->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrder(Order $order): self
+    {
+        if ($this->orders->removeElement($order)) {
+            // set the owning side to null (unless already changed)
+            if ($order->getUser() === $this) {
+                $order->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Pack[]
+     */
+    public function getPack(): Collection
+    {
+        return $this->pack;
+    }
+
+    public function addPack(Pack $pack): self
+    {
+        if (!$this->pack->contains($pack)) {
+            $this->pack[] = $pack;
+        }
+
+        return $this;
+    }
+
+    public function removePack(Pack $pack): self
+    {
+        $this->pack->removeElement($pack);
 
         return $this;
     }
