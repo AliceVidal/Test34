@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BackofficeController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+<h1>Ici, une nav de backoffice pour commencer à filtrer.</h1>
+
+<ul>
+<li> btn vers User->showAll User->Update/delete User</li>
+<li> btn vers Company->showAll Company->Update/delete/ Company</li>
+<li> btn vers Order->ShowAll Order->Update/delete/Order</li>
+<li> btn vers OrderDetails->ShowAll OrderDetails->Update/delete/OrderDetails</li>
+<li> btn vers Pack->showAll Pack->Update/delete/create Pack</li>
+<li> btn vers Challenge->showAll Challenge->Update/delete/create Challenge</li>
+<li> btn vers Task->ShowAll Task->Update/delete/create Task</li>
+
+
+</div>
+{% endblock %}

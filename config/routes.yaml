@@ -1,3 +1,14 @@
 company_create:
    path: /company/create
    controller: App\Controller\CompanyController::create
+
+backoffice_user_update:
+   path: /backoffice/update/{id}
+   controller: App\Controller\UserController::update
+   requirements: 
+    id: \d+
+
+backoffice:
+   path: /backoffice/
+   controller: App\Controller\BackofficeController::index
+
