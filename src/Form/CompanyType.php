@@ -46,7 +46,7 @@ class CompanyType extends AbstractType
                     'Bureaux partagés' => "Bureaux partagés",
                 ),
                 'expanded' => true,
-                'multiple' => true,
+                'multiple' => false,
                 'mapped' => false,
                 'label' => "Quels sont vos espaces de travail ?"
             ))
@@ -59,7 +59,7 @@ class CompanyType extends AbstractType
                     'Réduction des coûts' => "Réduction des coûts",
                 ),
                 'expanded' => true,
-                'multiple' => true,
+                'multiple' => false,
                 'mapped' => false,
                 'label' => "Quels sont vos objectifs face à cette transition ?"
             ))

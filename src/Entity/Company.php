@@ -30,27 +30,7 @@ class Company
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $employeesNumber;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $transportationMeans;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private $livingSpace;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $nomadicEmployees;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private $ecoGestures;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -62,10 +42,6 @@ class Company
      */
     private $transitionType;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $numberOfCompaniesConcerned;
 
     public function getId(): ?int
     {
@@ -96,42 +72,6 @@ class Company
         return $this;
     }
 
-    public function getNumberOfCompaniesConcerned(): ?string
-    {
-        return $this->numberOfCompaniesConcerned;
-    }
-
-    public function setNumberOfCompaniesConcerned(?string $numberOfCompaniesConcerned): self
-    {
-        $this->numberOfCompaniesConcerned = $numberOfCompaniesConcerned;
-
-        return $this;
-    }
-
-    public function getEmployeesNumber(): ?string
-    {
-        return $this->employeesNumber;
-    }
-
-    public function setEmployeesNumber(string $employeesNumber): self
-    {
-        $this->employeesNumber = $employeesNumber;
-
-        return $this;
-    }
-
-    public function getTransportationMeans(): ?string
-    {
-        return $this->transportationMeans;
-    }
-
-    public function setTransportationMeans(string $transportationMeans): self
-    {
-        $this->transportationMeans = $transportationMeans;
-
-        return $this;
-    }
-
     public function getLivingSpace(): ?string
     {
         return $this->livingSpace;
@@ -140,30 +80,6 @@ class Company
     public function setLivingSpace(string $livingSpace): self
     {
         $this->livingSpace = $livingSpace;
-
-        return $this;
-    }
-
-    public function getNomadicEmployees(): ?string
-    {
-        return $this->nomadicEmployees;
-    }
-
-    public function setNomadicEmployees(string $nomadicEmployees): self
-    {
-        $this->nomadicEmployees = $nomadicEmployees;
-
-        return $this;
-    }
-
-    public function getEcoGestures(): ?string
-    {
-        return $this->ecoGestures;
-    }
-
-    public function setEcoGestures(?string $ecoGestures): self
-    {
-        $this->ecoGestures = $ecoGestures;
 
         return $this;
     }
