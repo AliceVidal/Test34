@@ -33,6 +33,8 @@ class ChallengeController extends AbstractController
 
             $em->persist($challenge);
             $em->flush();
+
+            return $this->redirect($this->generateUrl("backoffice_challenge"));
         }
 
         return $this->render('challenge/showAll.html.twig',[
